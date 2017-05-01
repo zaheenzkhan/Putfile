@@ -1,5 +1,6 @@
 Boxroom::Application.routes.draw do
   get '/file_exists', :to => 'files#exists'
+  get '/updateuser', :to => 'users#updateuser'
   get '/signin', :to => 'sessions#new', :as => 'signin'
   delete '/signout', :to => 'sessions#destroy'
 
@@ -8,7 +9,7 @@ Boxroom::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]
   resources :reset_password, :except => [:index, :show, :destroy]
   resources :signup, :only => [:edit, :update]
-  resources :groups, :except => :show
+  resources :groups
   resources :files, :except => [:index, :new, :create]
   resources :share_links, :only => [:index, :show, :destroy]
 

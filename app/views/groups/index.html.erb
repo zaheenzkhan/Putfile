@@ -10,19 +10,21 @@
     <th><%= t :name %></th>
     <th></th>
   </tr>
-<% @groups.each do |group| -%>
+<% current_user.groups.each do |group| -%>
   <tr class="<%= cycle('even','odd') %>">
   <% if group.admins_group? -%>
     <td><%= image_tag('group_grey.png') %></td>
-    <td class="group_name disabled"><%= group.name %></td>
+    <td class="group_name"><%= link_to group.name, group %></td>
     <td></td>
   <% else -%>
     <td><%= image_tag('group.png') %></td>
-    <td class="group_name"><%= group.name %></td>
+    <td class="group_name"><%= link_to group.name, group %></td>
+    <% if current_user.member_of_admins? -%>
     <td>
       <%= link_to image_tag('edit.png', :alt => t(:edit)), edit_group_path(group), :title => t(:edit) %>&nbsp;
       <%= link_to image_tag('delete.png', :alt => t(:delete_item)), group_path(group), :method => :delete, :data => { :confirm => t(:are_you_sure) }, :title => t(:delete_item) %>
     </td>
+    <% end -%> 
   <% end -%>
   </tr>
 <% end -%>

@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :require_admin
+  # before_action :require_admin
   before_action :require_existing_group, :only => [:edit, :update, :destroy]
   before_action :require_group_isnt_admins_group, :only => [:edit, :update, :destroy]
 
@@ -21,11 +21,13 @@ class GroupsController < ApplicationController
     end
   end
 
-  # Note: @group is set in require_existing_group
   def edit
   end
 
-  # Note: @group is set in require_existing_group
+  def show
+    @group= Group.find(params[:id])
+  end
+  
   def update
     if @group.update_attributes(permitted_params.group)
       redirect_to edit_group_url(@group), :notice => t(:your_changes_were_saved)

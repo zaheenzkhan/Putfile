@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.new(permitted_params.user)
 
     if @user.save
-      UserMailer.signup_email(@user).deliver_now
+      UserMailer.signup_email(@user).deliver
       redirect_to users_url
     else
       render :action => 'new'
@@ -25,6 +25,11 @@ class UsersController < ApplicationController
 
   # Note: @user is set in require_existing_user
   def edit
+    if params[:user] == '1'
+      @form_flag = 1
+    elsif params[:user] == 0
+      @form_flag = 0
+    end
   end
 
   # Note: @user is set in require_existing_user

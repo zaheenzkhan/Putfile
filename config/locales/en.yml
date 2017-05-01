@@ -226,7 +226,7 @@
 
   # admins/new
   create_admin: Create admin
-  no_administrator_yet: Boxroom does not have an administrator yet. Create one here.
+  no_administrator_yet: Putfile does not have an administrator yet. Create one here.
   create_admin_account: Create admin account
   admin_user_created_successfully: The admin user was created successfully. You can now sign in.
 
@@ -400,6 +400,6 @@
   account_settings: Account settings
 
   # mailers/user_mailer
-  signup_email_subject: '[Boxroom] Sign up invitation'
-  reset_password_email_subject: '[Boxroom] Password reset instructions'
-  share_link_email_subject: '[Boxroom] %{email} shared a file with you'
+  signup_email_subject: '[Putfile] Sign up invitation'
+  reset_password_email_subject: '[Putfile] Password reset instructions'
+  share_link_email_subject: '[Putfile] %{email} shared a file with you'
